@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://gianni264-m.github.io/RekenSlim/sitemap.xml
