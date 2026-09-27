@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="nl-BE">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>RekenSlim.be — Gratis calculators voor België</title>
+  <meta name="description" content="Gratis handige calculators voor België: BTW, korting, percentage, leeftijd, datumverschil, uurloon, kilometervergoeding en meer.">
+  <link rel="canonical" href="https://rekenSlim.be/">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="container nav">
+    <a class="logo" href="index.html"><span>Reken</span>Slim<span class="dot">.</span>be</a>
+    <nav><a href="#calculators">Calculators</a><a href="over-ons.html">Over ons</a><a href="privacy.html">Privacy</a></nav>
+  </div>
+</header>
+
+<main>
+<section class="hero">
+  <div class="container hero-grid">
+    <div>
+      <div class="eyebrow">🇧🇪 Gratis voor België</div>
+      <h1>Reken het snel uit.<br><span>Gewoon slim.</span></h1>
+      <p class="hero-text">Handige online calculators voor alledaagse berekeningen. Gratis, eenvoudig en zonder account.</p>
+      <a class="button" href="#calculators">Bekijk calculators ↓</a>
+    </div>
+    <div class="hero-card">
+      <div class="mini-label">POPULAIR</div>
+      <h3>BTW berekenen</h3>
+      <div class="big-number">€ 121,00</div>
+      <div class="muted">€ 100 + 21% BTW</div>
+      <div class="fake-bar"><span></span></div>
+    </div>
+  </div>
+</section>
+
+<section class="container search-section">
+  <div class="section-head">
+    <div><div class="eyebrow">SNEL GEVONDEN</div><h2>Welke berekening zoek je?</h2></div>
+    <input id="search" class="search" type="search" placeholder="Zoek een calculator…">
+  </div>
+</section>
+
+<section id="calculators" class="container cards">
+  <article class="calc-card" data-title="BTW calculator btw"><div class="icon">%</div><h3>BTW-calculator</h3><p>Bereken bedragen inclusief of exclusief 6%, 12% of 21% BTW.</p><a href="#btw">Open calculator →</a></article>
+  <article class="calc-card" data-title="korting kortingcalculator"><div class="icon">🏷️</div><h3>Kortingcalculator</h3><p>Ontdek snel de prijs na een korting en hoeveel je bespaart.</p><a href="#korting">Open calculator →</a></article>
+  <article class="calc-card" data-title="percentage procent percentagecalculator"><div class="icon">📊</div><h3>Percentagecalculator</h3><p>Bereken percentages, stijgingen en dalingen.</p><a href="#percentage">Open calculator →</a></article>
+  <article class="calc-card" data-title="leeftijd leeftijdcalculator"><div class="icon">🎂</div><h3>Leeftijdcalculator</h3><p>Bereken precies hoe oud iemand is in jaren, maanden en dagen.</p><a href="#leeftijd">Open calculator →</a></article>
+  <article class="calc-card" data-title="datum datumverschil dagen"><div class="icon">📅</div><h3>Datumverschil</h3><p>Bereken het aantal dagen tussen twee datums.</p><a href="#datum">Open calculator →</a></article>
+  <article class="calc-card" data-title="uurloon maandloon loon salaris"><div class="icon">💶</div><h3>Uurloon → maandloon</h3><p>Maak een snelle bruto-inschatting op basis van je uurloon.</p><a href="#loon">Open calculator →</a></article>
+  <article class="calc-card" data-title="kilometervergoeding km auto"><div class="icon">🚗</div><h3>Kilometervergoeding</h3><p>Bereken een vergoeding op basis van kilometers en bedrag per km.</p><a href="#km">Open calculator →</a></article>
+  <article class="calc-card" data-title="leeftijd datum verjaardag"><div class="icon">🧮</div><h3>Snelle procenten</h3><p>Bereken eenvoudig een percentage van een bedrag.</p><a href="#percentage">Open calculator →</a></article>
+</section>
+
+<section class="container calculators">
+  <div class="tool" id="btw"><div><div class="eyebrow">BTW</div><h2>BTW-calculator</h2><p>Vul een bedrag in en kies het Belgische BTW-tarief.</p></div>
+    <div class="form-grid"><label>Bedrag (€)<input id="btwAmount" type="number" min="0" step="0.01" value="100"></label><label>BTW-tarief<select id="btwRate"><option value="6">6%</option><option value="12">12%</option><option value="21" selected>21%</option></select></label><label>Berekening<select id="btwMode"><option value="excl">Bedrag excl. BTW → incl.</option><option value="incl">Bedrag incl. BTW → excl.</option></select></label></div>
+    <button onclick="calcBTW()">Bereken</button><div class="result" id="btwResult"></div>
+  </div>
+
+  <div class="tool" id="korting"><div class="eyebrow">SHOPPEN</div><h2>Kortingcalculator</h2><p>Zie meteen je nieuwe prijs en besparing.</p>
+    <div class="form-grid"><label>Oorspronkelijke prijs (€)<input id="discountPrice" type="number" min="0" step="0.01" value="100"></label><label>Korting (%)<input id="discountPct" type="number" min="0" max="100" step="0.1" value="20"></label></div>
+    <button onclick="calcDiscount()">Bereken</button><div class="result" id="discountResult"></div>
+  </div>
+
+  <div class="tool" id="percentage"><div class="eyebrow">PERCENTAGES</div><h2>Percentagecalculator</h2><p>Hoeveel is X% van een bedrag?</p>
+    <div class="form-grid"><label>Percentage (%)<input id="pct" type="number" step="0.01" value="21"></label><label>Bedrag<input id="pctAmount" type="number" step="0.01" value="100"></label></div>
+    <button onclick="calcPct()">Bereken</button><div class="result" id="pctResult"></div>
+  </div>
+
+  <div class="tool" id="leeftijd"><div class="eyebrow">LEEFTIJD</div><h2>Leeftijdcalculator</h2><p>Bereken je leeftijd op basis van je geboortedatum.</p>
+    <div class="form-grid"><label>Geboortedatum<input id="birth" type="date"></label><label>Peildatum<input id="ageAt" type="date"></label></div>
+    <button onclick="calcAge()">Bereken</button><div class="result" id="ageResult"></div>
+  </div>
+
+  <div class="tool" id="datum"><div class="eyebrow">DATUM</div><h2>Datumverschilcalculator</h2><p>Hoeveel dagen zitten er tussen twee datums?</p>
+    <div class="form-grid"><label>Startdatum<input id="dateStart" type="date"></label><label>Einddatum<input id="dateEnd" type="date"></label></div>
+    <button onclick="calcDates()">Bereken</button><div class="result" id="dateResult"></div>
+  </div>
+
+  <div class="tool" id="loon"><div class="eyebrow">LOON</div><h2>Uurloon → maandloon</h2><p>Een eenvoudige bruto-inschatting. Dit is geen officiële loonberekening.</p>
+    <div class="form-grid"><label>Uurloon (€)<input id="hourly" type="number" step="0.01" value="18"></label><label>Uren per week<input id="hours" type="number" step="0.5" value="38"></label></div>
+    <button onclick="calcSalary()">Bereken</button><div class="result" id="salaryResult"></div>
+  </div>
+
+  <div class="tool" id="km"><div class="eyebrow">VERPLAATSING</div><h2>Kilometervergoeding</h2><p>Vul kilometers en de vergoeding per kilometer in.</p>
+    <div class="form-grid"><label>Kilometers<input id="kmDistance" type="number" min="0" step="0.1" value="100"></label><label>Bedrag per km (€)<input id="kmRate" type="number" min="0" step="0.001" value="0.4449"></label></div>
+    <button onclick="calcKm()">Bereken</button><div class="result" id="kmResult"></div>
+  </div>
+</section>
+
+<section class="ad-space container"><span>Advertentieruimte</span></section>
+
+<section class="container info">
+  <div><div class="eyebrow">WAAROM REKENSLIM?</div><h2>Geen account. Geen gedoe.</h2></div>
+  <p>RekenSlim is gemaakt om veelgebruikte berekeningen zo eenvoudig mogelijk te maken. Gebruik de tools gratis op je computer, tablet of smartphone.</p>
+</section>
+</main>
+
+<footer><div class="container footer"><div><a class="logo" href="index.html"><span>Reken</span>Slim<span class="dot">.</span>be</a><p>Gratis calculators voor België.</p></div><div><a href="over-ons.html">Over ons</a><a href="privacy.html">Privacy</a><a href="contact.html">Contact</a></div></div><div class="container copyright">© 2026 RekenSlim.be</div></footer>
+<script src="script.js"></script>
+</body>
+</html>
